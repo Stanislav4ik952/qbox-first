@@ -15,7 +15,7 @@ import (
 
 // Карта зарегистрированных драйверов.
 // Примечание: Добавляя новые драйвера, необходимо добавить описание в HELP для флага type
-var driversMap = [16]models.IDeviceDriver{
+var driversMap = [17]models.IDeviceDriver{
 	new(skm2.SKM),
 	new(drivers.SKU02B),
 	new(drivers.Tem104),
@@ -32,6 +32,7 @@ var driversMap = [16]models.IDeviceDriver{
 	new(drivers.TEM104M2),
 	new(skm2m.SKM),
 	new(drivers.Alfamera),
+	new(drivers.TEM206),
 }
 
 const VersionCoreApp = "0.0.5"
@@ -149,7 +150,8 @@ func InitConfig() Config {
 			"\n\t   12 - TEM-104k"+
 			"\n\t   13 - TEM-104M2"+
 			"\n\t   14 - SKM2M."+
-			"\n\t   15 - alfamera.")
+			"\n\t   15 - alfamera."+
+		        "\n\t   16 - TEM-206")
 
 	flag.UintVar(
 		&configService.counterNumber,
